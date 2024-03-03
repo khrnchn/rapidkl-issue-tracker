@@ -7,6 +7,7 @@ use App\Enums\PriorityEnum;
 use App\Enums\StatusEnum;
 use App\Models\Issue;
 use App\Models\User;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -21,7 +22,9 @@ use Filament\Tables\Columns\Layout\View;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 
 class ListIssues extends Component implements HasTable, HasForms
@@ -109,9 +112,8 @@ class ListIssues extends Component implements HasTable, HasForms
                 ]),
             ])
             ->contentGrid([
-                's' => 2,
-                'md' => 3,
-                'xl' => 4,
+                'md' => 2,
+                'xl' => 3,
             ])
             ->headerActions([
                 CreateAction::make()
@@ -144,6 +146,34 @@ class ListIssues extends Component implements HasTable, HasForms
                             ]),
 
                     ])
+            ])
+            ->filters([
+                Filter::make('breakdown')
+                    ->query(fn (Builder $query): Builder => $query->where('category', CategoryEnum::BREAKDOWN)),
+
+                Filter::make('delay')
+                    ->query(fn (Builder $query): Builder => $query->where('category', CategoryEnum::DELAY)),
+
+                Filter::make('service_discruption')
+                    ->query(fn (Builder $query): Builder => $query->where('category', CategoryEnum::SERVICE_DISRUPTION)),
+
+                Filter::make('created_at')
+                    ->form([
+                        DatePicker::make('created_from'),
+                        DatePicker::make('created_until')
+                            ->default(now()),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    })
             ]);
     }
 }

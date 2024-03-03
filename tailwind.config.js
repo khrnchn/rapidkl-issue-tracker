@@ -6,5 +6,13 @@ export default {
         './app/Filament/**/*.php',
         './resources/views/filament/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
+        './resources/views/**/*.blade.php',
     ],
+    theme: {
+        extend: {
+            width: {
+                'test': '64rem',
+            }
+        }
+    }
 }
