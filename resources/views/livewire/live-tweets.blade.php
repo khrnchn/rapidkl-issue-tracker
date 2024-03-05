@@ -1,4 +1,4 @@
-<div class="py-5 pl-5 mb-4 border border-gray-100 rounded-xl bg-gray-50">
+<div class="w-6/12 py-5 pl-5 mb-4 border border-gray-100 rounded-xl bg-gray-50">
     <time class="text-lg font-semibold text-gray-900">Live tweets today {{ \Carbon\Carbon::today()->toDateString() }}</time>
 
     @for ($i = 0; $i < 3; $i++) <ul role="list" class="space-y-6">

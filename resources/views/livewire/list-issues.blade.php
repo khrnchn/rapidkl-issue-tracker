@@ -9,9 +9,10 @@
         {{ $this->table }}
     </section>
 
-
-    <section>
+    <section class="flex justify-between gap-5">
         @livewire(\App\Livewire\LiveTweets::class)
+
+        {{ $this->activityTimelineInfolist }}
     </section>
 
     <!-- <footer class="bg-white rounded-lg shadow">

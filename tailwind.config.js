@@ -7,6 +7,7 @@ export default {
         "./resources/views/filament/**/*.blade.php",
         "./vendor/filament/**/*.blade.php",
         "./resources/views/**/*.blade.php",
+        ...'./vendor/jaocero/activity-timeline/resources/views/**/*.blade.php',
     ],
     theme: {
         extend: {
