@@ -19,8 +19,9 @@
         @vite('resources/css/app.css')
     </head>
  
-    <body class="antialiased">
+    <body class="antialiased from-[#295CA9] bg-gradient-to-l to-rose-500 h-full pb-10">
         {{ $slot }}
+        @livewire('notifications')
  
         @filamentScripts
         @vite('resources/js/app.js')
