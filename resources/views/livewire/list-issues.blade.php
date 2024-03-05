@@ -1,8 +1,17 @@
-<div class="wrapper w-full h-full mx-auto pt-10 px-20">
+<div class="wrapper w-full h-full mx-auto pt-10 px-20 space-y-5">
     <h1 class="text-xl font-semibold text-white mb-6 font-mono">RapidKL Issue Tracker</h1>
 
-    <section class="py-4">
+    <section>
+        @livewire(\App\Livewire\StatsOverview::class)
+    </section>
+
+    <section>
         {{ $this->table }}
+    </section>
+
+
+    <section>
+        @livewire(\App\Livewire\LiveTweets::class)
     </section>
 
     <!-- <footer class="bg-white rounded-lg shadow">

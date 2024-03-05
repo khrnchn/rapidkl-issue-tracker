@@ -16,7 +16,6 @@ class StatsOverview extends BaseWidget
             Stat::make('Issues raised', Issue::count()),
             Stat::make('Issues resolved', Issue::where('status', StatusEnum::RESOLVED)->count()),
             Stat::make('Issues today', Issue::whereDate('created_at', Carbon::today())->count()),
-
         ];
     }
 }
