@@ -45,6 +45,7 @@ class ListIssues extends Component implements HasTable, HasForms
     public function table(Table $table): Table
     {
         return $table
+            // ->paginated(false)
             ->query(Issue::query())
             ->columns([
                 Stack::make([
@@ -78,6 +79,11 @@ class ListIssues extends Component implements HasTable, HasForms
                                 StatusEnum::REPORTED => 'danger',
                                 StatusEnum::IN_PROGRESS => 'warning',
                                 StatusEnum::RESOLVED => 'success',
+                            })
+                            ->icon(fn (int $state): string => match ($state) {
+                                StatusEnum::REPORTED => 'heroicon-o-pencil',
+                                StatusEnum::IN_PROGRESS => 'heroicon-o-cube',
+                                StatusEnum::RESOLVED => 'heroicon-o-check-circle',
                             })
                             ->formatStateUsing(function ($state) {
                                 if ($state == StatusEnum::REPORTED) {
