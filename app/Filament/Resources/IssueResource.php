@@ -167,7 +167,8 @@ class IssueResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateDescription('Apparently there are no issues for now...');
     }
 
     public static function getRelations(): array
