@@ -1,5 +1,10 @@
 <div class="wrapper w-full h-full mx-auto pt-10 px-20 space-y-5">
-    <h1 class="text-xl font-semibold text-white mb-6 font-mono">RapidKL Issue Tracker</h1>
+    <section class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <span class="block">RapidKL Issue Tracker</span>
+            <span class="text-base font-normal text-gray-500">your one-stop place for all Klang Valley public transportation issues.</span>
+        </h2>
+    </section>
 
     <section>
         @livewire(\App\Livewire\StatsOverview::class)
@@ -9,31 +14,8 @@
         {{ $this->table }}
     </section>
 
-    <section class="flex justify-between gap-5">
-        @livewire(\App\Livewire\LiveTweets::class)
-
-        {{ $this->activityTimelineInfolist }}
-    </section>
-
-    <!-- <footer class="bg-white rounded-lg shadow">
-        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023. pet project by <a href="https://github.com/khrnchn/rapidkl-issue-tracker" class="hover:underline">khairin</a>.
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">idea from nrmnqdds' <a href="https://ideaspace.nrmqdds.com" class="hover:underline">ideaspace</a>.
-                </span>
-                <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Contact</a>
-                    </li>
-                </ul>
-        </div>
-    </footer> -->
+    <footer class="flex justify-center items-center text-xs text-gray-500">
+        made with ❤️ by&nbsp;
+        <a href="https://khrnchn.xyz" class="text-blue-500 hover:underline"> @khrnchn</a>
+    </footer>
 </div>

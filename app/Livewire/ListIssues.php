@@ -270,6 +270,9 @@ class ListIssues extends Component implements HasTable, HasForms, HasInfolists
             ])
             ->schema([
                 ActivitySection::make('activities')
+                    ->emptyStateHeading('No tweets today.')
+                    ->emptyStateDescription('Check back later for tweets from rapidkl admin.')
+                    ->emptyStateIcon('heroicon-o-bolt-slash')
                     ->label('My Activities')
                     ->description('These are the activities that have been recorded.')
                     ->schema([
@@ -304,7 +307,7 @@ class ListIssues extends Component implements HasTable, HasForms, HasInfolists
                     ->showItemsColor('gray') // Show button color and it supports all colors
                     ->aside(true)
                     ->headingVisible(true) // make heading visible or not
-                    // ->extraAttributes(['class' => 'my-new-class']) // add extra class
+                // ->extraAttributes(['class' => 'my-new-class']) // add extra class
             ]);
     }
 }

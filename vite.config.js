@@ -11,4 +11,9 @@ export default defineConfig({
             ],
         }),
     ],
+    server: {
+        watch: {
+            ignored: ['**/DumpStack.log.tmp']
+        }
+    }
 });

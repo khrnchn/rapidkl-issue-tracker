@@ -10,3 +10,8 @@
     background: rgb(212 212 216);
     color: rgb(10 10 10);
 }
+
+.fi-timeline-section {
+    @apply bg-transparent !important;
+}
+
