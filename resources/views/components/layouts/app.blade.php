@@ -22,7 +22,7 @@
 
 <!-- <body class="antialiased from-[#295CA9] bg-gradient-to-l to-rose-500 h-full pb-10"> -->
 
-<body>
+<body class="bg-zinc-200">
     {{ $slot }}
     @livewire('notifications')
 
